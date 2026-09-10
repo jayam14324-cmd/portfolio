@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Projects | Mohit Kumar</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+       /* =========================================================
+   MOHIT KUMAR — PROJECT PAGE
+   PREMIUM 3D / NEON / GLASSMORPHISM
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(37, 99, 235, .25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(168, 85, 247, .22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(6, 182, 212, .14),
+            transparent 35%
+        ),
+        #030712;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID / TEXTURE
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: -10;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            black 55%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   BIG AMBIENT LIGHT
+========================================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 550px;
+    height: 550px;
+
+    left: -220px;
+    top: 20%;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    filter: blur(130px);
+
+    opacity: .12;
+
+    z-index: -9;
+
+    animation: ambientMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMove {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(280px, 100px);
+    }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-header {
+    width: calc(100% - 70px);
+
+    margin: 18px auto 0;
+
+    padding: 13px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(8,18,45,.82),
+            rgba(27,8,52,.72)
+        );
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.05);
+
+    position: sticky;
+    top: 15px;
+
+    z-index: 100;
+}
+
+
+/* Animated header border */
+
+.top-header::before {
+    content: "";
+
+    position: absolute;
+    inset: -1px;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #9333ea,
+            #ec4899,
+            #06b6d4,
+            #2563eb
+        );
+
+    background-size: 300% 100%;
+
+    animation: headerBorder 7s linear infinite;
+
+    opacity: .5;
+
+    z-index: -1;
+
+    padding: 1px;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite: exclude;
+}
+
+@keyframes headerBorder {
+    to {
+        background-position: 300% 0;
+    }
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #9333ea
+        );
+
+    box-shadow:
+        0 0 25px rgba(99,102,241,.45);
+
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+
+    50% {
+        box-shadow:
+            0 0 40px rgba(168,85,247,.65);
+    }
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    color: #dbeafe;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(96,165,250,.35);
+
+    background:
+        rgba(37,99,235,.08);
+
+    transition: .35s ease;
+}
+
+.back-btn:hover {
+
+    transform: translateY(-3px);
+
+    color: #fff;
+
+    border-color: #60a5fa;
+
+    background:
+        rgba(37,99,235,.18);
+
+    box-shadow:
+        0 10px 35px rgba(37,99,235,.25);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    width: min(1250px, calc(100% - 40px));
+
+    min-height: 600px;
+
+    margin: 0 auto;
+
+    padding: 65px 20px 50px;
+
+    display: grid;
+
+    /*
+        HTML order:
+
+        badge
+        image
+        h1
+        paragraph
+
+        We use CSS grid to place them
+        exactly where we want.
+    */
+
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+        "badge image"
+        "title image"
+        "text image";
+
+    align-items: center;
+
+    column-gap: 30px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   HERO BADGE
+========================================================= */
+
+.hero-badge {
+
+    grid-area: badge;
+
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 17px;
+
+    border-radius: 50px;
+
+    color: #c7d2fe;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(37,99,235,.12),
+            rgba(168,85,247,.12)
+        );
+
+    border: 1px solid rgba(129,140,248,.35);
+
+    box-shadow:
+        0 0 30px rgba(99,102,241,.12);
+
+    animation:
+        badgeFloat 3s ease-in-out infinite;
+}
+
+.hero-badge i {
+    color: #818cf8;
+
+    filter:
+        drop-shadow(
+            0 0 7px #6366f1
+        );
+}
+
+@keyframes badgeFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   3D CHARACTER / IMAGE
+========================================================= */
+
+/*
+    Tumhare HTML mein:
+
+    <img src="3d.png" alt="">
+
+    hai.
+
+    Isliye ye directly us image ko style karega.
+*/
+
+.hero > img {
+
+    grid-area: image;
+
+    width: min(560px, 100%);
+
+    height: 500px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    justify-self: center;
+
+    align-self: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    /*
+        Agar PNG ka background transparent hai,
+        to ye effect character ko glow dega.
+    */
+
+    filter:
+        drop-shadow(
+            0 30px 30px rgba(0,0,0,.45)
+        )
+        drop-shadow(
+            0 0 35px rgba(99,102,241,.18)
+        );
+
+    animation:
+        characterFloat 5s ease-in-out infinite;
+}
+
+
+/* Character ke peeche glow */
+
+.hero > img::after {
+    content: "";
+}
+
+
+/* Character floating */
+
+@keyframes characterFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-13px)
+            rotate(.6deg);
+    }
+}
+
+
+/* =========================================================
+   CHARACTER LIGHT RING
+========================================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: 6%;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(99,102,241,.20),
+            rgba(168,85,247,.08) 45%,
+            transparent 70%
+        );
+
+    filter: blur(5px);
+
+    z-index: 0;
+
+    animation:
+        characterGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes characterGlow {
+
+    from {
+        transform: scale(.9);
+        opacity: .55;
+    }
+
+    to {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero h1 {
+
+    grid-area: title;
+
+    margin-top: 22px;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            82px
+        );
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    font-weight: 900;
+
+    position: relative;
+
+    z-index: 4;
+
+    text-shadow:
+        0 10px 40px rgba(0,0,0,.25);
+
+    animation:
+        titleReveal .9s ease both;
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* Gradient "Projects" */
+
+.gradient-text {
+
+    background:
+        linear-gradient(
+            90deg,
+            #38bdf8,
+            #818cf8,
+            #c084fc,
+            #f472b6,
+            #38bdf8
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 5s linear infinite;
+
+    filter:
+        drop-shadow(
+            0 0 20px rgba(168,85,247,.18)
+        );
+}
+
+@keyframes gradientMove {
+
+    to {
+        background-position: 300% center;
+    }
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero p {
+
+    grid-area: text;
+
+    max-width: 600px;
+
+    margin-top: 22px;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+    line-height: 1.85;
+
+    position: relative;
+
+    z-index: 4;
+
+    animation:
+        textReveal 1.1s ease both;
+}
+
+@keyframes textReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   DECORATIVE ORBS AROUND CHARACTER
+========================================================= */
+
+.hero-character {
+    display: none;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.projects {
+
+    width: min(1250px, calc(100% - 40px));
+
+    margin: 20px auto 100px;
+
+    padding: 20px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   PDF CARD
+========================================================= */
+
+.pdf-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35);
+
+    transition:
+        transform .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease;
+}
+
+
+/* Card light */
+
+.pdf-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -120px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background:
+        #6366f1;
+
+    filter: blur(80px);
+
+    opacity: .16;
+
+    pointer-events: none;
+}
+
+
+/* Bottom glow */
+
+.pdf-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background:
+        #06b6d4;
+
+    filter: blur(80px);
+
+    opacity: .10;
+
+    pointer-events: none;
+}
+
+
+.pdf-card:hover {
+
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(129,140,248,.45);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.48),
+        0 0 50px rgba(99,102,241,.12);
+}
+
+
+/* =========================================================
+   PDF HEADER
+========================================================= */
+
+.pdf-header {
+
+    padding: 24px 25px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.pdf-icon {
+
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 16px;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #f97316
+        );
+
+    box-shadow:
+        0 10px 35px rgba(239,68,68,.25);
+
+    animation:
+        pdfPulse 3s ease-in-out infinite;
+}
+
+@keyframes pdfPulse {
+
+    50% {
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 15px 40px rgba(239,68,68,.35);
+    }
+}
+
+.pdf-header h2 {
+
+    color: #f8fafc;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.pdf-header span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PDF PREVIEW
+========================================================= */
+
+.pdf-preview {
+
+    margin: 0 20px;
+
+    height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background: #fff;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    position: relative;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+}
+
+.pdf-preview iframe {
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    background: #fff;
+}
+
+
+/* PDF shine */
+
+.pdf-preview::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.15),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+}
+
+.pdf-card:hover .pdf-preview::after {
+
+    animation:
+        pdfShine 1.2s ease;
+}
+
+@keyframes pdfShine {
+
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+
+.preview-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    box-shadow:
+        inset 0 0 60px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   PDF FOOTER
+========================================================= */
+
+.pdf-footer {
+
+    padding: 20px 25px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.pdf-info {
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.pdf-info strong {
+
+    color: #e2e8f0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   OPEN PDF BUTTON
+========================================================= */
+
+.open-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 18px;
+
+    border-radius: 13px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            100deg,
+            #2563eb,
+            #7c3aed,
+            #db2777
+        );
+
+    background-size: 200% auto;
+
+    box-shadow:
+        0 12px 30px rgba(99,102,241,.25);
+
+    transition: .35s;
+}
+
+.open-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    background-position:
+        100% center;
+
+    box-shadow:
+        0 18px 45px rgba(99,102,241,.40);
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+========================================================= */
+
+.bottom-note {
+
+    width: min(700px, calc(100% - 40px));
+
+    margin: 0 auto 80px;
+
+    padding: 18px 25px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    color: #94a3b8;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.20);
+}
+
+.bottom-note i {
+
+    color: #818cf8;
+
+    margin-right: 7px;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            #2563eb,
+            #a855f7,
+            #ec4899
+        );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .top-header {
+        width: calc(100% - 30px);
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "badge"
+            "image"
+            "title"
+            "text";
+
+        text-align: center;
+
+        padding-top: 50px;
+    }
+
+    .hero-badge {
+
+        justify-self: center;
+    }
+
+    .hero > img {
+
+        width: min(500px, 90vw);
+
+        height: 430px;
+
+        justify-self: center;
+
+        margin: -15px auto -10px;
+    }
+
+    .hero h1 {
+
+        margin-top: 5px;
+    }
+
+    .hero p {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .projects {
+
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-header {
+
+        width: calc(100% - 20px);
+
+        padding: 10px 12px;
+
+        border-radius: 18px;
+    }
+
+    .logo {
+
+        font-size: 15px;
+    }
+
+    .logo-icon {
+
+        width: 36px;
+        height: 36px;
+    }
+
+    .back-btn {
+
+        padding: 9px 11px;
+
+        font-size: 10px;
+    }
+
+    .hero {
+
+        width: calc(100% - 25px);
+
+        padding:
+            45px 10px
+            35px;
+
+        min-height: auto;
+    }
+
+    .hero > img {
+
+        width: 100%;
+
+        height: 330px;
+
+        margin: -10px auto -5px;
+    }
+
+    .hero h1 {
+
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+    .projects {
+
+        width: calc(100% - 20px);
+
+        padding: 0;
+
+        gap: 20px;
+    }
+
+    .pdf-card {
+
+        border-radius: 21px;
+    }
+
+    .pdf-header {
+
+        padding:
+            20px 18px 15px;
+    }
+
+    .pdf-preview {
+
+        height: 400px;
+
+        margin:
+            0 12px;
+    }
+
+    .pdf-footer {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding:
+            18px;
+    }
+
+    .open-btn {
+
+        width: 100%;
+    }
+
+    .bottom-note {
+
+        width: calc(100% - 25px);
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+
+            <span>Project Lab👽</span>
+
+        </a>
+
+        <a href="index.html#projects" class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to main page
+
+        </a>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <span class="hero-badge">
+
+            <i class="fa-solid fa-folder-open"></i>
+
+            PROJECT DOCUMENTATION
+
+        </span>
+        <img src="3d.png" alt="">
+
+        <h1>
+
+            My <span class="gradient-text">Projects</span>
+
+        </h1>
+
+        <p>
+
+            Explore my project documentation, work samples
+            and professional learning journey.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <main class="projects">
+
+
+        <!-- ================= PDF 1 ================= -->
+
+        <article class="pdf-card">
+
+            <div class="pdf-header">
+
+                <div class="pdf-icon">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>Tally Prime </h2>
+
+                    <span>PDF Document</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pdf-preview">
+
+                <iframe
+                    src="doc1.pdf"
+                    title="Project PDF 1">
+                </iframe>
+
+                <div class="preview-overlay"></div>
+
+            </div>
+
+
+            <div class="pdf-footer">
+
+                <div class="pdf-info">
+
+                    <strong>Project File</strong><br>
+
+                    View the complete project documentation.
+
+                </div>
+
+                <a
+                    href="doc1.pdf"
+                    target="_blank"
+                    class="open-btn">
+
+                    Open PDF
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================= PDF 2 ================= -->
+
+        <article class="pdf-card">
+
+            <div class="pdf-header">
+
+                <div class="pdf-icon">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>Power Bi Project </h2>
+
+                    <span>PDF Document</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pdf-preview">
+
+                <iframe
+                    src="doc2.pdf"
+                    title="Project PDF 2">
+                </iframe>
+
+                <div class="preview-overlay"></div>
+
+            </div>
+
+
+            <div class="pdf-footer">
+
+                <div class="pdf-info">
+
+                    <strong>Project File</strong><br>
+
+                    View the complete project documentation.
+
+                </div>
+
+                <a
+                    href="doc2.pdf"
+                    target="_blank"
+                    class="open-btn">
+
+                    Open PDF
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+    <!-- ================= NOTE ================= -->
+
+    <div class="bottom-note">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        Click <strong>Open PDF</strong> to view any project
+        in a separate browser tab.
+
+    </div>
+
+
+</body>
+</html>
